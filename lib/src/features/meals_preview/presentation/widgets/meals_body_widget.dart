@@ -13,7 +13,9 @@ class MealsBodyWidget extends StatelessWidget {
       return state.maybeWhen(
           orElse: () => cubit.meals.isEmpty
               ? const MealsEmptyWidget()
-              : const MealsListWidget(),
+              : MealsListWidget(
+                  meals: cubit.meals,
+                ),
           loading: () => const Center(
                 child: CircularProgressIndicator(
                   color: AppColors.primaryColor,

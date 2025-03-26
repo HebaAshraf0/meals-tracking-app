@@ -7,7 +7,7 @@ class AppSpacing {
   static double medium = 8.0.rh;
   static double large = 16.0.rh;
   static double xLarge = 24.0.rh;
-  static double xxLarge = 64.0.rh;
+  static double xxLarge = 50.0.rh;
   static double xxxLarge = 128.0.rh;
   static double xxxXLarge = 256.0.rh;
 }

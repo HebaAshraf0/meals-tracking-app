@@ -35,8 +35,11 @@ class AppDatabase extends _$AppDatabase {
       select(mealsTable).asyncMap(_mapTableDataToMealModel).watch();
 
   // Delete a meal
-  Future<int> deleteMeal(String id) =>
-      (delete(mealsTable)..where((m) => m.id.equals(id))).go();
+  Future<int> deleteMeal(String id) async {
+    final res =
+        await (delete(mealsTable)..where((m) => m.id.equals(id))).goAndReturn();
+    return 0;
+  }
 
   Future<MealModel> _mapTableDataToMealModel(MealsTableData p1) async =>
       MealModel.fromJson(

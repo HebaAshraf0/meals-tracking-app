@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meals_tracking_app/lib.dart';
 
 class MealsFabWidget extends StatelessWidget {
@@ -16,5 +17,23 @@ class MealsFabWidget extends StatelessWidget {
     );
   }
 
-  _showMealsPicker(BuildContext context) {}
+  _showMealsPicker(BuildContext context) async {
+    final result = await showModalBottomSheet(
+      useSafeArea: true,
+      isScrollControlled: true,
+      context: context,
+      builder: (context) => SingleChildScrollView(
+        child: Container(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: const MediaPickerProviderCreationWidget(
+            child: MealsPickerBodyWidget(),
+          ),
+        ),
+      ),
+    );
+    if (result == true && context.mounted) {
+      context.read<MealsCubit>().loadMeals();
+    }
+  }
 }

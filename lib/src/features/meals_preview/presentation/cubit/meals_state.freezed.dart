@@ -20,8 +20,9 @@ mixin _$MealsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() deletingMeal,
+    required TResult Function(String id) deletedMeal,
     required TResult Function(Map<dynamic, List<MealModel>> items) loaded,
+    required TResult Function(SortBy type) sorted,
     required TResult Function(AppException exception) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,8 +30,9 @@ mixin _$MealsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? deletingMeal,
+    TResult? Function(String id)? deletedMeal,
     TResult? Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult? Function(SortBy type)? sorted,
     TResult? Function(AppException exception)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,8 +40,9 @@ mixin _$MealsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? deletingMeal,
+    TResult Function(String id)? deletedMeal,
     TResult Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult Function(SortBy type)? sorted,
     TResult Function(AppException exception)? error,
     required TResult orElse(),
   }) =>
@@ -48,8 +51,9 @@ mixin _$MealsState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_DeletingMeal value) deletingMeal,
+    required TResult Function(_DeletingMeal value) deletedMeal,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Sorted value) sorted,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,8 +61,9 @@ mixin _$MealsState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_DeletingMeal value)? deletingMeal,
+    TResult? Function(_DeletingMeal value)? deletedMeal,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Sorted value)? sorted,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -66,8 +71,9 @@ mixin _$MealsState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_DeletingMeal value)? deletingMeal,
+    TResult Function(_DeletingMeal value)? deletedMeal,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Sorted value)? sorted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -138,8 +144,9 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() deletingMeal,
+    required TResult Function(String id) deletedMeal,
     required TResult Function(Map<dynamic, List<MealModel>> items) loaded,
+    required TResult Function(SortBy type) sorted,
     required TResult Function(AppException exception) error,
   }) {
     return initial();
@@ -150,8 +157,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? deletingMeal,
+    TResult? Function(String id)? deletedMeal,
     TResult? Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult? Function(SortBy type)? sorted,
     TResult? Function(AppException exception)? error,
   }) {
     return initial?.call();
@@ -162,8 +170,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? deletingMeal,
+    TResult Function(String id)? deletedMeal,
     TResult Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult Function(SortBy type)? sorted,
     TResult Function(AppException exception)? error,
     required TResult orElse(),
   }) {
@@ -178,8 +187,9 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_DeletingMeal value) deletingMeal,
+    required TResult Function(_DeletingMeal value) deletedMeal,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Sorted value) sorted,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -190,8 +200,9 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_DeletingMeal value)? deletingMeal,
+    TResult? Function(_DeletingMeal value)? deletedMeal,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Sorted value)? sorted,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -202,8 +213,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_DeletingMeal value)? deletingMeal,
+    TResult Function(_DeletingMeal value)? deletedMeal,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Sorted value)? sorted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -261,8 +273,9 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() deletingMeal,
+    required TResult Function(String id) deletedMeal,
     required TResult Function(Map<dynamic, List<MealModel>> items) loaded,
+    required TResult Function(SortBy type) sorted,
     required TResult Function(AppException exception) error,
   }) {
     return loading();
@@ -273,8 +286,9 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? deletingMeal,
+    TResult? Function(String id)? deletedMeal,
     TResult? Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult? Function(SortBy type)? sorted,
     TResult? Function(AppException exception)? error,
   }) {
     return loading?.call();
@@ -285,8 +299,9 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? deletingMeal,
+    TResult Function(String id)? deletedMeal,
     TResult Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult Function(SortBy type)? sorted,
     TResult Function(AppException exception)? error,
     required TResult orElse(),
   }) {
@@ -301,8 +316,9 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_DeletingMeal value) deletingMeal,
+    required TResult Function(_DeletingMeal value) deletedMeal,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Sorted value) sorted,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -313,8 +329,9 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_DeletingMeal value)? deletingMeal,
+    TResult? Function(_DeletingMeal value)? deletedMeal,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Sorted value)? sorted,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -325,8 +342,9 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_DeletingMeal value)? deletingMeal,
+    TResult Function(_DeletingMeal value)? deletedMeal,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Sorted value)? sorted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -346,6 +364,8 @@ abstract class _$$DeletingMealImplCopyWith<$Res> {
   factory _$$DeletingMealImplCopyWith(
           _$DeletingMealImpl value, $Res Function(_$DeletingMealImpl) then) =
       __$$DeletingMealImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -358,37 +378,63 @@ class __$$DeletingMealImplCopyWithImpl<$Res>
 
   /// Create a copy of MealsState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeletingMealImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$DeletingMealImpl implements _DeletingMeal {
-  const _$DeletingMealImpl();
+  const _$DeletingMealImpl(this.id);
+
+  @override
+  final String id;
 
   @override
   String toString() {
-    return 'MealsState.deletingMeal()';
+    return 'MealsState.deletedMeal(id: $id)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DeletingMealImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DeletingMealImpl &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of MealsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletingMealImplCopyWith<_$DeletingMealImpl> get copyWith =>
+      __$$DeletingMealImplCopyWithImpl<_$DeletingMealImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() deletingMeal,
+    required TResult Function(String id) deletedMeal,
     required TResult Function(Map<dynamic, List<MealModel>> items) loaded,
+    required TResult Function(SortBy type) sorted,
     required TResult Function(AppException exception) error,
   }) {
-    return deletingMeal();
+    return deletedMeal(id);
   }
 
   @override
@@ -396,11 +442,12 @@ class _$DeletingMealImpl implements _DeletingMeal {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? deletingMeal,
+    TResult? Function(String id)? deletedMeal,
     TResult? Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult? Function(SortBy type)? sorted,
     TResult? Function(AppException exception)? error,
   }) {
-    return deletingMeal?.call();
+    return deletedMeal?.call(id);
   }
 
   @override
@@ -408,13 +455,14 @@ class _$DeletingMealImpl implements _DeletingMeal {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? deletingMeal,
+    TResult Function(String id)? deletedMeal,
     TResult Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult Function(SortBy type)? sorted,
     TResult Function(AppException exception)? error,
     required TResult orElse(),
   }) {
-    if (deletingMeal != null) {
-      return deletingMeal();
+    if (deletedMeal != null) {
+      return deletedMeal(id);
     }
     return orElse();
   }
@@ -424,11 +472,12 @@ class _$DeletingMealImpl implements _DeletingMeal {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_DeletingMeal value) deletingMeal,
+    required TResult Function(_DeletingMeal value) deletedMeal,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Sorted value) sorted,
     required TResult Function(_Error value) error,
   }) {
-    return deletingMeal(this);
+    return deletedMeal(this);
   }
 
   @override
@@ -436,11 +485,12 @@ class _$DeletingMealImpl implements _DeletingMeal {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_DeletingMeal value)? deletingMeal,
+    TResult? Function(_DeletingMeal value)? deletedMeal,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Sorted value)? sorted,
     TResult? Function(_Error value)? error,
   }) {
-    return deletingMeal?.call(this);
+    return deletedMeal?.call(this);
   }
 
   @override
@@ -448,20 +498,29 @@ class _$DeletingMealImpl implements _DeletingMeal {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_DeletingMeal value)? deletingMeal,
+    TResult Function(_DeletingMeal value)? deletedMeal,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Sorted value)? sorted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (deletingMeal != null) {
-      return deletingMeal(this);
+    if (deletedMeal != null) {
+      return deletedMeal(this);
     }
     return orElse();
   }
 }
 
 abstract class _DeletingMeal implements MealsState {
-  const factory _DeletingMeal() = _$DeletingMealImpl;
+  const factory _DeletingMeal(final String id) = _$DeletingMealImpl;
+
+  String get id;
+
+  /// Create a copy of MealsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeletingMealImplCopyWith<_$DeletingMealImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -541,8 +600,9 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() deletingMeal,
+    required TResult Function(String id) deletedMeal,
     required TResult Function(Map<dynamic, List<MealModel>> items) loaded,
+    required TResult Function(SortBy type) sorted,
     required TResult Function(AppException exception) error,
   }) {
     return loaded(items);
@@ -553,8 +613,9 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? deletingMeal,
+    TResult? Function(String id)? deletedMeal,
     TResult? Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult? Function(SortBy type)? sorted,
     TResult? Function(AppException exception)? error,
   }) {
     return loaded?.call(items);
@@ -565,8 +626,9 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? deletingMeal,
+    TResult Function(String id)? deletedMeal,
     TResult Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult Function(SortBy type)? sorted,
     TResult Function(AppException exception)? error,
     required TResult orElse(),
   }) {
@@ -581,8 +643,9 @@ class _$LoadedImpl implements _Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_DeletingMeal value) deletingMeal,
+    required TResult Function(_DeletingMeal value) deletedMeal,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Sorted value) sorted,
     required TResult Function(_Error value) error,
   }) {
     return loaded(this);
@@ -593,8 +656,9 @@ class _$LoadedImpl implements _Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_DeletingMeal value)? deletingMeal,
+    TResult? Function(_DeletingMeal value)? deletedMeal,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Sorted value)? sorted,
     TResult? Function(_Error value)? error,
   }) {
     return loaded?.call(this);
@@ -605,8 +669,9 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_DeletingMeal value)? deletingMeal,
+    TResult Function(_DeletingMeal value)? deletedMeal,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Sorted value)? sorted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -627,6 +692,170 @@ abstract class _Loaded implements MealsState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SortedImplCopyWith<$Res> {
+  factory _$$SortedImplCopyWith(
+          _$SortedImpl value, $Res Function(_$SortedImpl) then) =
+      __$$SortedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SortBy type});
+}
+
+/// @nodoc
+class __$$SortedImplCopyWithImpl<$Res>
+    extends _$MealsStateCopyWithImpl<$Res, _$SortedImpl>
+    implements _$$SortedImplCopyWith<$Res> {
+  __$$SortedImplCopyWithImpl(
+      _$SortedImpl _value, $Res Function(_$SortedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MealsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_$SortedImpl(
+      null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as SortBy,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SortedImpl implements _Sorted {
+  const _$SortedImpl(this.type);
+
+  @override
+  final SortBy type;
+
+  @override
+  String toString() {
+    return 'MealsState.sorted(type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SortedImpl &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  /// Create a copy of MealsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SortedImplCopyWith<_$SortedImpl> get copyWith =>
+      __$$SortedImplCopyWithImpl<_$SortedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String id) deletedMeal,
+    required TResult Function(Map<dynamic, List<MealModel>> items) loaded,
+    required TResult Function(SortBy type) sorted,
+    required TResult Function(AppException exception) error,
+  }) {
+    return sorted(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String id)? deletedMeal,
+    TResult? Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult? Function(SortBy type)? sorted,
+    TResult? Function(AppException exception)? error,
+  }) {
+    return sorted?.call(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String id)? deletedMeal,
+    TResult Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult Function(SortBy type)? sorted,
+    TResult Function(AppException exception)? error,
+    required TResult orElse(),
+  }) {
+    if (sorted != null) {
+      return sorted(type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_DeletingMeal value) deletedMeal,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Sorted value) sorted,
+    required TResult Function(_Error value) error,
+  }) {
+    return sorted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_DeletingMeal value)? deletedMeal,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Sorted value)? sorted,
+    TResult? Function(_Error value)? error,
+  }) {
+    return sorted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_DeletingMeal value)? deletedMeal,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Sorted value)? sorted,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (sorted != null) {
+      return sorted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Sorted implements MealsState {
+  const factory _Sorted(final SortBy type) = _$SortedImpl;
+
+  SortBy get type;
+
+  /// Create a copy of MealsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SortedImplCopyWith<_$SortedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -713,8 +942,9 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() deletingMeal,
+    required TResult Function(String id) deletedMeal,
     required TResult Function(Map<dynamic, List<MealModel>> items) loaded,
+    required TResult Function(SortBy type) sorted,
     required TResult Function(AppException exception) error,
   }) {
     return error(exception);
@@ -725,8 +955,9 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? deletingMeal,
+    TResult? Function(String id)? deletedMeal,
     TResult? Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult? Function(SortBy type)? sorted,
     TResult? Function(AppException exception)? error,
   }) {
     return error?.call(exception);
@@ -737,8 +968,9 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? deletingMeal,
+    TResult Function(String id)? deletedMeal,
     TResult Function(Map<dynamic, List<MealModel>> items)? loaded,
+    TResult Function(SortBy type)? sorted,
     TResult Function(AppException exception)? error,
     required TResult orElse(),
   }) {
@@ -753,8 +985,9 @@ class _$ErrorImpl implements _Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_DeletingMeal value) deletingMeal,
+    required TResult Function(_DeletingMeal value) deletedMeal,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Sorted value) sorted,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -765,8 +998,9 @@ class _$ErrorImpl implements _Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_DeletingMeal value)? deletingMeal,
+    TResult? Function(_DeletingMeal value)? deletedMeal,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Sorted value)? sorted,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -777,8 +1011,9 @@ class _$ErrorImpl implements _Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_DeletingMeal value)? deletingMeal,
+    TResult Function(_DeletingMeal value)? deletedMeal,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Sorted value)? sorted,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

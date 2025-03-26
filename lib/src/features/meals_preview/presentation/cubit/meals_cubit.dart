@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:jiffy/jiffy.dart';
 import 'package:meals_tracking_app/lib.dart';
 
 enum SortBy { date, name, calories }
@@ -26,7 +27,7 @@ class MealsCubit extends Cubit<MealsState> {
       result.fold(
         (error) => emit(MealsState.error(error)),
         (stream) => stream.listen((items) {
-          _meals = groupBy(items, (e) => e.date);
+          _meals = groupBy(items, (e) => Jiffy.parseFromDateTime(e.date).MMMEd);
 
           sortMeals(_sortValue);
 
@@ -37,7 +38,6 @@ class MealsCubit extends Cubit<MealsState> {
   }
 
   deleteMeal(String mealId) async {
-    emit(const MealsState.deletingMeal());
     final res = await _deleteMealUseCase(
       DeleteMealUseCaseParams(
         mealId: mealId,
@@ -46,31 +46,29 @@ class MealsCubit extends Cubit<MealsState> {
     res.fold(
       (error) => emit(MealsState.error(error)),
       (success) {
-        // _meals.removeWhere((meal) => meal.id == mealId);
-        emit(MealsState.loaded(meals));
+        _meals = _meals.map((key, val) =>
+            MapEntry(key, val..removeWhere((e) => e.id == mealId)));
+        emit(MealsState.deletedMeal(mealId));
       },
     );
   }
 
   sortMeals(SortBy sortBy) {
     _sortValue = sortBy;
-    // switch (sortBy) {
-    //   case SortBy.date:
-    //     _meals.(
-    //       (a, b) => a.date.compareTo(b.date),
-    //     );
-    //     break;
-    //   case SortBy.name:
-    //     _meals.sort(
-    //       (a, b) => a.name.compareTo(b.name),
-    //     );
-    //     break;
-    //   case SortBy.calories:
-    //     _meals.sort(
-    //       (a, b) => a.calories.compareTo(b.calories),
-    //     );
-    //     break;
-    // }
-    emit(MealsState.loaded(meals));
+    switch (sortBy) {
+      case SortBy.date:
+        _meals = _meals.map((key, val) =>
+            MapEntry(key, val..sort((a, b) => a.date.compareTo(b.date))));
+        break;
+      case SortBy.name:
+        _meals = _meals.map((key, val) =>
+            MapEntry(key, val..sort((a, b) => a.name.compareTo(b.name))));
+        break;
+      case SortBy.calories:
+        _meals = _meals.map((key, val) => MapEntry(
+            key, val..sort((a, b) => a.calories.compareTo(b.calories))));
+        break;
+    }
+    emit(MealsState.sorted(sortBy));
   }
 }

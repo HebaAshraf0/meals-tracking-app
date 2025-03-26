@@ -1164,12 +1164,11 @@ class _$OnMealImageChangedImpl implements _OnMealImageChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OnMealImageChangedImpl &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   /// Create a copy of MealsPickerState
   /// with the given fields replaced by the non-null parameter values.

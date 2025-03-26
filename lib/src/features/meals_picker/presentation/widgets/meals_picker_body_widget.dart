@@ -6,13 +6,27 @@ class MealsPickerBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        MealsImageWidget(),
-        MealsNameTextFieldWidget(),
-        MealsCaloriesTextFieldWidget(),
-        // MealsDatePickerWidget(),
-      ],
+    return Padding(
+      padding: EdgeInsets.all(AppSpacing.xLarge),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const MealsImageWidget(),
+          SizedBox(
+            height: 12.rh,
+          ),
+          const MealsNameTextFieldWidget(),
+          SizedBox(
+            height: 12.rh,
+          ),
+          const MealsCaloriesTextFieldWidget(),
+          SizedBox(
+            height: 12.rh,
+          ),
+          const MealsSaveButtonWidget(),
+        ],
+      ),
     );
   }
 }

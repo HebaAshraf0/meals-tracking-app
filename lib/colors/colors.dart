@@ -8,4 +8,6 @@ class AppColors {
   static const textSecondaryColor = Color.fromARGB(255, 100, 99, 101);
   static const criticalColor = Color.fromARGB(191, 251, 4, 4);
   static const separetorColor = Color.fromARGB(255, 86, 86, 86);
+    static const lightGrayColor = Color.fromARGB(255, 189, 188, 188);
+
 }
